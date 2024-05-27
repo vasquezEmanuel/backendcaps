@@ -8,30 +8,30 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "api/v1/user")
+@RequestMapping(path = "/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
     @GetMapping
-    public List<User> getAll(){
+    public List<User> getAllUser(){
         return userService.getUsers();
     }
 
     @GetMapping("/{UserId}")
-    public Optional<User> getById(@PathVariable("UserId") Long UserId){
-        return userService.getUser(UserId);
+    public Optional<User> getUserById(@PathVariable("UserId") Long userId){
+        return userService.getUser(userId);
     }
 
 
     @DeleteMapping("/{UserId}")
-    public void delete(@PathVariable("UserId") Long UserId){
-        userService.delete(UserId);
+    public void deleteUser(@PathVariable("UserId") Long UserId){
+        userService.deleteUser(UserId);
     }
 
     @PostMapping
-    public void saveUpdate(@RequestBody User user){
-        userService.saveOrUpdate(user);
+    public void saveUpdateUser(@RequestBody User user){
+        userService.saveOrUpdateUser(user);
     }
 }
