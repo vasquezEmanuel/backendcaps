@@ -21,14 +21,14 @@ public class CapController {
         return capService.getCaps();
     }
 
-    @GetMapping("/{UserId}")
-    public Optional<Cap> getCapById(@PathVariable("UserId") Long capId){
+    @GetMapping("/{capId}")
+    public Optional<Cap> getCapById(@PathVariable("capId") Long capId){
         return capService.getCap(capId);
     }
 
 
-    @DeleteMapping("/{UserId}")
-    public void deleteCap(@PathVariable("UserId") Long capId){
+    @DeleteMapping("/{capId}")
+    public void deleteCap(@PathVariable("capId") Long capId){
         capService.deleteCap(capId);
     }
 
