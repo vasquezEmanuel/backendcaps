@@ -2,6 +2,8 @@ package com.example.backendcaps.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "tbl_user")
 public class User {
@@ -11,16 +13,19 @@ public class User {
     private Long userId;
 
     @Column(name = "phone")
-    private Integer phone;
+    private Integer userPhone;
 
     @Column(name = "name", nullable = false)
-    private String name;
+    private String userName;
 
     @Column(name = "email", unique = true)
-    private String email;
+    private String userEmail;
 
     @Column(name = "address", nullable = false)
-    private String address;
+    private String userAddress;
+
+    @OneToMany(mappedBy = "user")
+    private List<Invoice> userInvoices;
 
     public Long getUserId() {
         return userId;
@@ -30,35 +35,43 @@ public class User {
         this.userId = userId;
     }
 
-    public Integer getPhone() {
-        return phone;
+    public Integer getUserPhone() {
+        return userPhone;
     }
 
-    public void setPhone(Integer phone) {
-        this.phone = phone;
+    public void setUserPhone(Integer userPhone) {
+        this.userPhone = userPhone;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public String getAddress() {
-        return address;
+    public String getUserAddress() {
+        return userAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
+    }
+
+    public List<Invoice> getUserInvoices() {
+        return userInvoices;
+    }
+
+    public void setUserInvoices(List<Invoice> userInvoices) {
+        this.userInvoices = userInvoices;
     }
 }

@@ -1,7 +1,6 @@
 package com.example.backendcaps.controller;
 
 import com.example.backendcaps.entity.Cap;
-import com.example.backendcaps.entity.User;
 import com.example.backendcaps.service.CapService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

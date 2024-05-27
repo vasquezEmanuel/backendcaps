@@ -2,6 +2,8 @@ package com.example.backendcaps.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "tlb_cap")
 public class Cap {
@@ -10,20 +12,31 @@ public class Cap {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long capId;
 
-    @Column(nullable = false)
-    private String brand;
+    @Column(name = "color", nullable = false)
+    private String capColor;
 
-    @Column(nullable = false)
-    private String color;
+    @Column(name = "size", nullable = false)
+    private String capSize;
 
-    @Column(nullable = false)
-    private String size;
+    @Column(name = "description",nullable = false)
+    private String capDescription;
 
-    @Column(nullable = false)
-    private String description;
+    @Column(name = "amount", nullable = false)
+    private Integer capAmount;
 
     @Column(nullable = false)
     private Double price;
+
+    @ManyToMany(mappedBy = "caps")
+    private List<Invoice> invoices;
+
+    @ManyToMany
+    @JoinTable(
+            name = "tbl_suppierxcap",
+            joinColumns = @JoinColumn(name = "cap_id"),
+            inverseJoinColumns = @JoinColumn(name = "suppier_id")
+    )
+    private List<Supplier> suppliers;
 
     public Long getCapId() {
         return capId;
@@ -33,36 +46,36 @@ public class Cap {
         this.capId = capId;
     }
 
-    public String getBrand() {
-        return brand;
+    public String getCapColor() {
+        return capColor;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setCapColor(String capColor) {
+        this.capColor = capColor;
     }
 
-    public String getColor() {
-        return color;
+    public String getCapSize() {
+        return capSize;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setCapSize(String capSize) {
+        this.capSize = capSize;
     }
 
-    public String getSize() {
-        return size;
+    public String getCapDescription() {
+        return capDescription;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setCapDescription(String capDescription) {
+        this.capDescription = capDescription;
     }
 
-    public String getDescription() {
-        return description;
+    public Integer getCapAmount() {
+        return capAmount;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCapAmount(Integer capAmount) {
+        this.capAmount = capAmount;
     }
 
     public Double getPrice() {
@@ -71,5 +84,21 @@ public class Cap {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public List<Invoice> getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(List<Invoice> invoices) {
+        this.invoices = invoices;
+    }
+
+    public List<Supplier> getSuppliers() {
+        return suppliers;
+    }
+
+    public void setSuppliers(List<Supplier> suppliers) {
+        this.suppliers = suppliers;
     }
 }
