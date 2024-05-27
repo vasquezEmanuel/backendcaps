@@ -21,11 +21,8 @@ public class Cap {
     @Column(name = "description",nullable = false)
     private String capDescription;
 
-    @Column(name = "amount", nullable = false)
-    private Integer capAmount;
-
-    @Column(nullable = false)
-    private Double price;
+    @Column(name = "price",nullable = false)
+    private Double capPrice;
 
     @ManyToMany(mappedBy = "caps")
     private List<Invoice> invoices;
@@ -70,20 +67,12 @@ public class Cap {
         this.capDescription = capDescription;
     }
 
-    public Integer getCapAmount() {
-        return capAmount;
-    }
-
-    public void setCapAmount(Integer capAmount) {
-        this.capAmount = capAmount;
-    }
-
     public Double getPrice() {
-        return price;
+        return capPrice;
     }
 
     public void setPrice(Double price) {
-        this.price = price;
+        this.capPrice = price;
     }
 
     public List<Invoice> getInvoices() {
