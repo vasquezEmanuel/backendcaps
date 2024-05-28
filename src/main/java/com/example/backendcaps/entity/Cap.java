@@ -21,19 +21,15 @@ public class Cap {
     @Column(name = "description",nullable = false)
     private String capDescription;
 
-    @Column(name = "price",nullable = false)
+    @Column(name = "price", nullable = false)
     private Double capPrice;
 
     @ManyToMany(mappedBy = "caps")
     private List<Invoice> invoices;
 
-    @ManyToMany
-    @JoinTable(
-            name = "tbl_suppierxcap",
-            joinColumns = @JoinColumn(name = "cap_id"),
-            inverseJoinColumns = @JoinColumn(name = "suppier_id")
-    )
+    @ManyToMany(mappedBy = "caps")
     private List<Supplier> suppliers;
+
 
     public Long getCapId() {
         return capId;
@@ -67,12 +63,12 @@ public class Cap {
         this.capDescription = capDescription;
     }
 
-    public Double getPrice() {
+    public Double getCapPrice() {
         return capPrice;
     }
 
-    public void setPrice(Double price) {
-        this.capPrice = price;
+    public void setCapPrice(Double capPrice) {
+        this.capPrice = capPrice;
     }
 
     public List<Invoice> getInvoices() {

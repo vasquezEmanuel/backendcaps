@@ -9,50 +9,55 @@ import java.util.List;
 public class Supplier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long suppierId;
+    private Long supplierId;
 
     @Column(name = "name", nullable = false, unique = true)
-    private String suppierName;
+    private String supplierName;
 
     @Column(name = "phone", nullable = false)
-    private Integer suppierPhone;
+    private Integer supplierPhone;
 
     @Column(name = "address", nullable = false)
-    private String suppierAddress;
+    private String supplierAddress;
 
-    @ManyToMany(mappedBy = "suppliers")
+    @ManyToMany
+    @JoinTable(
+            name = "tbl_supplierxcap",
+            joinColumns = @JoinColumn(name = "supplier_id"),
+            inverseJoinColumns = @JoinColumn(name = "cap_id")
+    )
     private List<Cap> caps;
 
-    public Long getSuppierId() {
-        return suppierId;
+    public Long getSupplierId() {
+        return supplierId;
     }
 
-    public void setSuppierId(Long suppierId) {
-        this.suppierId = suppierId;
+    public void setSupplierId(Long supplierId) {
+        this.supplierId = supplierId;
     }
 
-    public String getSuppierName() {
-        return suppierName;
+    public String getSupplierName() {
+        return supplierName;
     }
 
-    public void setSuppierName(String suppierName) {
-        this.suppierName = suppierName;
+    public void setSupplierName(String supplierName) {
+        this.supplierName = supplierName;
     }
 
-    public Integer getSuppierPhone() {
-        return suppierPhone;
+    public Integer getSupplierPhone() {
+        return supplierPhone;
     }
 
-    public void setSuppierPhone(Integer suppierPhone) {
-        this.suppierPhone = suppierPhone;
+    public void setSupplierPhone(Integer supplierPhone) {
+        this.supplierPhone = supplierPhone;
     }
 
-    public String getSuppierAddress() {
-        return suppierAddress;
+    public String getSupplierAddress() {
+        return supplierAddress;
     }
 
-    public void setSuppierAddress(String suppierAddress) {
-        this.suppierAddress = suppierAddress;
+    public void setSupplierAddress(String supplierAddress) {
+        this.supplierAddress = supplierAddress;
     }
 
     public List<Cap> getCaps() {
@@ -63,3 +68,4 @@ public class Supplier {
         this.caps = caps;
     }
 }
+

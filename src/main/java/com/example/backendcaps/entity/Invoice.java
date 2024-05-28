@@ -27,7 +27,6 @@ public class Invoice {
     @JoinColumn(name = "user_id")
     private User user;
 
-
     @ManyToMany
     @JoinTable(
             name = "tbl_invoicexcap",
