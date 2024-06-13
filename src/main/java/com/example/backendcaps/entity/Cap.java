@@ -23,6 +23,8 @@ public class Cap {
 
     @Column(name = "price", nullable = false)
     private Double capPrice;
+    @Column(name = "image")
+    private String imageUrl;
 
     @ManyToMany(mappedBy = "caps")
     private List<Invoice> invoices;
@@ -69,6 +71,14 @@ public class Cap {
 
     public void setCapPrice(Double capPrice) {
         this.capPrice = capPrice;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public List<Invoice> getInvoices() {
