@@ -5,26 +5,30 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "tlb_cap")
+@Table(name = "tbl_cap")
 public class Cap {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long capId;
 
-    @Column(name = "color", nullable = false)
-    private String capColor;
+    @Column(name = "size_id", nullable = false)
+    private Integer sizeId;
 
-    @Column(name = "size", nullable = false)
-    private String capSize;
+    @Column(name = "color_id", nullable = false)
+    private Integer colorId;
 
     @Column(name = "description",nullable = false)
     private String capDescription;
 
     @Column(name = "price", nullable = false)
     private Double capPrice;
+
     @Column(name = "image")
     private String imageUrl;
+
+    @Column(name = "warranty_id")
+    private Integer warrantyId;
 
     @ManyToMany(mappedBy = "caps")
     private List<Invoice> invoices;
@@ -41,20 +45,20 @@ public class Cap {
         this.capId = capId;
     }
 
-    public String getCapColor() {
-        return capColor;
+    public Integer getSizeId() {
+        return sizeId;
     }
 
-    public void setCapColor(String capColor) {
-        this.capColor = capColor;
+    public void setSizeId(Integer sizeId) {
+        this.sizeId = sizeId;
     }
 
-    public String getCapSize() {
-        return capSize;
+    public Integer getColorId() {
+        return colorId;
     }
 
-    public void setCapSize(String capSize) {
-        this.capSize = capSize;
+    public void setColorId(Integer colorId) {
+        this.colorId = colorId;
     }
 
     public String getCapDescription() {
@@ -79,6 +83,14 @@ public class Cap {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public Integer getWarrantyId() {
+        return warrantyId;
+    }
+
+    public void setWarrantyId(Integer warrantyId) {
+        this.warrantyId = warrantyId;
     }
 
     public List<Invoice> getInvoices() {

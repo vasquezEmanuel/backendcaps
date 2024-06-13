@@ -27,6 +27,9 @@ public class Invoice {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Column(name = "payment_method_id", nullable = false)
+    private Integer paymentMethodId;
+
     @ManyToMany
     @JoinTable(
             name = "tbl_invoicexcap",
@@ -65,6 +68,14 @@ public class Invoice {
 
     public void setTotalAmount(double totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public Integer getPaymentMethodId() {
+        return paymentMethodId;
+    }
+
+    public void setPaymentMethodId(Integer paymentMethodId) {
+        this.paymentMethodId = paymentMethodId;
     }
 
     public User getUser() {
