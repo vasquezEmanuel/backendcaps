@@ -21,9 +21,9 @@ Puedes usar cualquier IDE, pero aquí se explicará el proceso con IntelliJ IDEA
 
 ## 3. Configuración de la Base de Datos MySQL
 
-### Instalación de MySQL
-1. Descarga MySQL desde [aquí](https://dev.mysql.com/downloads/installer/).
-2. Instala MySQL siguiendo las instrucciones del instalador y configura un usuario root con su contraseña.
+### Instalación de MySQL y MySQL Workbench
+1. Descarga MySQL y MySQL Workbench desde [aquí](https://dev.mysql.com/downloads/workbench/).
+2. Instala MySQL y MySQL Workbench siguiendo las instrucciones del instalador y configura un usuario root con su contraseña.
 
 ### Crear la Base de Datos
 
